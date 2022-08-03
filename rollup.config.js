@@ -44,6 +44,7 @@ export default [
       commonjs(),
       replace({
         'process.env.NODE_ENV': JSON.stringify('production'),
+        preventAssignment: true,
       }),
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
