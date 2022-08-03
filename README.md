@@ -41,3 +41,9 @@ return (
   />
 );
 ```
+
+## Build
+
+```shell
+npm install && npm run-script build
+```
