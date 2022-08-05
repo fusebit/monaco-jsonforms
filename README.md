@@ -12,22 +12,12 @@ npm i @fusebit/monaco-jsonforms
 
 ## 🔨 Usage
 
-If you want to use the base MonacoEditor
-
-```javascript
-import { MonacoEditor } from "@fusebit/monaco-jsonforms";
-
-return (
-  <MonacoEditor
-    defaultValue={props.defaultValue}
-    onChange={(value: string) => props.handleChange(value)}
-    label={props.label}
-    isExpandable={props.isExpandable}
-  />
-);
+In raw HTML:
+```html
+<script src="https://unpkg.com/@fusebit/monaco-jsonforms@latest/dist/cjs/index.js">
 ```
 
-If you want to use it in JSONForms as a custom render, import the controls and add them to your JSONForms renderers
+Use it in JSONForms as a custom render by importing the controls and adding them to your JSONForms renderers
 
 ```javascript
 import { JsonForms } from "@jsonforms/react";
