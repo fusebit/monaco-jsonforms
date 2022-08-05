@@ -32,6 +32,31 @@ return (
 );
 ```
 
+## In the form
+
+For `schema.json`:
+```json
+{
+  "type": "object",
+  "properties": {
+    "mappingCode": {
+      "type": "string",
+      "title": "Transformation JavaScript function",
+      "isExpandable": false,
+    }
+  }
+}
+```
+ 
+For `uischema.json`:
+```
+{
+  "type": "CodeBlock",
+  "scope": "#/properties/mappingCode",
+  "label": "mParticle Transform",
+}
+```               
+
 ## Build
 
 ```shell
