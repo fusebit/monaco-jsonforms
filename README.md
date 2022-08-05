@@ -42,7 +42,7 @@ For `schema.json`:
     "mappingCode": {
       "type": "string",
       "title": "Transformation JavaScript function",
-      "isExpandable": false,
+      "isExpandable": false
     }
   }
 }
@@ -53,7 +53,7 @@ For `uischema.json`:
 {
   "type": "CodeBlock",
   "scope": "#/properties/mappingCode",
-  "label": "mParticle Transform",
+  "label": "Customer Transform"
 }
 ```               
 
