@@ -14,7 +14,15 @@ npm i @fusebit/monaco-jsonforms
 
 In raw HTML:
 ```html
-<script src="https://unpkg.com/@fusebit/monaco-jsonforms@latest/dist/cjs/index.js">
+<script src="https://cdn.fusebit.io/fusebit/js/fusebit-form/latest/jsonforms-core.js"></script>
+<script src="https://cdn.fusebit.io/fusebit/js/fusebit-form/latest/jsonforms-react.js"></script>
+<script src="https://cdn.fusebit.io/fusebit/js/fusebit-form/latest/jsonforms-material.js"></script>
+<script src="https://unpkg.com/@fusebit/monaco-jsonforms@latest/dist/cjs/index.js"></script>
+...
+<JSONFormsReact.JsonForms
+  renderers={[...JSONFormsMaterial.materialRenderers, MonacoJSONForms.MonacoEditorControl]}
+  ...
+/> 
 ```
 
 Use it in JSONForms as a custom render by importing the controls and adding them to your JSONForms renderers
@@ -47,7 +55,10 @@ For `schema.json`:
   }
 }
 ```
- 
+
+Note: the `isExpandable` flag allows for the editor to vertically expand to fit the code supplied.
+
+
 For `uischema.json`:
 ```json
 {
