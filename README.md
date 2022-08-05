@@ -49,7 +49,7 @@ For `schema.json`:
 ```
  
 For `uischema.json`:
-```
+```json
 {
   "type": "CodeBlock",
   "scope": "#/properties/mappingCode",
