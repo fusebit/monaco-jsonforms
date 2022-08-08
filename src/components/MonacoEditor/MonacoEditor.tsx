@@ -10,10 +10,10 @@ const StyledEditor = styled(Editor)<{ isExpandable: boolean }>`
   background-color: white;
   box-shadow: 0px 20px 48px rgba(52, 72, 123, 0.1);
   border-radius: 8px;
-  padding: ${(props) => !props.isExpandable && "16px 0"};
+  padding: ${(props) => !props.isExpandable && "4px 0"};
 
   .monaco-editor {
-    padding: ${(props) => props.isExpandable && "16px 0"};
+    padding: ${(props) => props.isExpandable && "4px 0"};
     .scroll-decoration {
       box-shadow: none;
     }
@@ -25,11 +25,12 @@ const StyledEditor = styled(Editor)<{ isExpandable: boolean }>`
 
     .margin-view-overlays .line-numbers {
       text-align: left;
-      padding-left: 16px;
+      padding-left: 4px;
     }
 
     .monaco-scrollable-element {
-      left: 45px !important;
+      left: 34px !important;
+      width: calc(100% - 34px) !important;
     }
   }
 `;
