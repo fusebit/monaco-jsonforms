@@ -43,20 +43,22 @@ const StyledLabel = styled.div`
 `;
 
 interface Props {
-  defaultValue: string;
+  value: string;
   onChange: (val: string) => void;
   label?: string;
   isExpandable?: boolean;
+  language?: "javascript" | "json" | "yaml" | string;
 }
 
 const LINE_HEIGHT = 20;
 const DEFAULT_EDITOR_HEIGHT = 290;
 
 const MonacoEditor = ({
-  defaultValue,
+  value,
   onChange,
   label,
   isExpandable,
+  language,
 }: Props) => {
   const editorRef = useRef<any>(null);
   const [editorHeight, setEditorHeight] = useState(DEFAULT_EDITOR_HEIGHT);
@@ -80,9 +82,9 @@ const MonacoEditor = ({
           },
           tabSize: 2,
         }}
-        defaultLanguage="javascript"
+        language={language || "javascript"}
         theme="fusebit"
-        defaultValue={defaultValue}
+        value={value}
         onMount={handleOnMount}
         onChange={(val) => {
           onChange(val || "");

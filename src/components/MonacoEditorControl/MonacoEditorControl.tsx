@@ -11,6 +11,7 @@ import MonacoEditor from "../MonacoEditor/MonacoEditor";
 
 type CustomProps = {
   isExpandable: boolean;
+  language: string;
 };
 
 type JsonSchemaWithCustomProps = JsonSchema & CustomProps;
@@ -25,10 +26,11 @@ const MonacoEditorControlVanillaRenderer = ({
 
   return (
     <MonacoEditor
-      defaultValue={data}
+      value={data}
       onChange={(value: string) => handleChange(path, value)}
       label={schema.title}
       isExpandable={schema.isExpandable}
+      language={schema.language}
     />
   );
 };
