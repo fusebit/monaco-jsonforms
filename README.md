@@ -50,13 +50,16 @@ For `schema.json`:
     "mappingCode": {
       "type": "string",
       "title": "Transformation JavaScript function",
-      "isExpandable": false
+      "isExpandable": false,
+      "language": "javascript",
     }
   }
 }
 ```
 
-Note: the `isExpandable` flag allows for the editor to vertically expand to fit the code supplied.
+Notes: 
+the `isExpandable` flag allows for the editor to vertically expand to fit the code supplied.
+the `language` flag allows for the editor to change it's language. If it's undefined, it will default to javascript.
 
 
 For `uischema.json`:
