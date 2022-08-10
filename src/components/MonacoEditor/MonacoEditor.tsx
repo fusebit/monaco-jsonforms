@@ -10,10 +10,10 @@ const StyledEditor = styled(Editor)<{ isExpandable: boolean }>`
   background-color: white;
   box-shadow: 0px 20px 48px rgba(52, 72, 123, 0.1);
   border-radius: 8px;
-  padding: ${(props) => !props.isExpandable && "32px 0"};
+  padding: ${(props) => !props.isExpandable && "4px 0"};
 
   .monaco-editor {
-    padding: ${(props) => props.isExpandable && "32px 0"};
+    padding: ${(props) => props.isExpandable && "4px 0"};
     .scroll-decoration {
       box-shadow: none;
     }
@@ -21,6 +21,16 @@ const StyledEditor = styled(Editor)<{ isExpandable: boolean }>`
     .view-overlays .current-line {
       background: #f7f9f9;
       border: none;
+    }
+
+    .margin-view-overlays .line-numbers {
+      text-align: left;
+      padding-left: 4px;
+    }
+
+    .monaco-scrollable-element {
+      left: 34px !important;
+      width: calc(100% - 34px) !important;
     }
   }
 `;
@@ -34,20 +44,22 @@ const StyledLabel = styled.div`
 `;
 
 interface Props {
-  defaultValue: string;
+  value: string;
   onChange: (val: string) => void;
   label?: string;
   isExpandable?: boolean;
+  language?: "javascript" | "json" | "yaml" | string;
 }
 
 const LINE_HEIGHT = 20;
 const DEFAULT_EDITOR_HEIGHT = 290;
 
 const MonacoEditor = ({
-  defaultValue,
+  value,
   onChange,
   label,
   isExpandable,
+  language,
 }: Props) => {
   const editorRef = useRef<any>(null);
   const [editorHeight, setEditorHeight] = useState(DEFAULT_EDITOR_HEIGHT);
@@ -69,10 +81,11 @@ const MonacoEditor = ({
           scrollbar: {
             vertical: isExpandable ? "hidden" : "auto",
           },
+          tabSize: 2,
         }}
-        defaultLanguage="javascript"
+        language={language || "javascript"}
         theme="fusebit"
-        defaultValue={defaultValue}
+        value={value}
         onMount={handleOnMount}
         onChange={(val) => {
           onChange(val || "");
