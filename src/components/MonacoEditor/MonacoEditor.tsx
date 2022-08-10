@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
+import { Typography } from "@material-ui/core";
 import styled from "styled-components";
 
 const Wrapper = styled.div<{ isExpandable: boolean }>`
@@ -35,7 +36,7 @@ const StyledEditor = styled(Editor)<{ isExpandable: boolean }>`
   }
 `;
 
-const StyledLabel = styled.div`
+const StyledLabel = styled(Typography)`
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;

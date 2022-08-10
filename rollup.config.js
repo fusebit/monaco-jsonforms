@@ -5,7 +5,7 @@ import dts from "rollup-plugin-dts";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import json from "@rollup/plugin-json";
-import replace from '@rollup/plugin-replace';
+import replace from "@rollup/plugin-replace";
 
 const packageJson = require("./package.json");
 
@@ -16,6 +16,7 @@ export default [
       "@jsonforms/core",
       "@jsonforms/react",
       "@jsonforms/material-renderers",
+      "@material-ui/core",
     ],
     input: "src/index.ts",
     output: [
@@ -29,6 +30,7 @@ export default [
           "@jsonforms/core": "JSONFormsCore",
           "@jsonforms/react": "JSONFormsReact",
           "@jsonforms/material-renderers": "JSONFormsMaterial",
+          "@material-ui/core": "MaterialUI",
         },
       },
       {
@@ -43,7 +45,7 @@ export default [
       json(),
       commonjs(),
       replace({
-        'process.env.NODE_ENV': JSON.stringify('production'),
+        "process.env.NODE_ENV": JSON.stringify("production"),
         preventAssignment: true,
       }),
       typescript({ tsconfig: "./tsconfig.json" }),
