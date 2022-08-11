@@ -1,1 +1,1 @@
-export { default } from "./MonacoEditorControl";
+export { default } from './MonacoEditorControl';
