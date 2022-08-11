@@ -14,7 +14,3 @@ declare module '@jsonforms/core' {
   const and: any;
   const uiTypeIs: any;
 }
-
-declare module '@material-ui/core' {
-  const Typography: any;
-}
