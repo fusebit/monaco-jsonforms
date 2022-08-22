@@ -21,8 +21,10 @@ In raw HTML:
 <script src="https://unpkg.com/@fusebit/monaco-jsonforms@latest/dist/cjs/index.js"></script>
 ...
 <JSONFormsReact.JsonForms
-  renderers="{[...JSONFormsMaterial.materialRenderers,"
-  MonacoJSONForms.MonacoEditorControl]}
+  renderers={[
+    ...JSONFormsMaterial.materialRenderers,
+    MonacoJSONForms.MonacoEditorControl,
+  ]}
   ...
 />
 ```
