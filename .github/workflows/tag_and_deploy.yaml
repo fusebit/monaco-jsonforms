@@ -1,14 +1,14 @@
 on: push
 name: 'Tag and Publish to Production'
 jobs:
-  build_tree:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16.17.0
+          node-version: 14.17.2
       - name: Build
         run: ./scripts/build.sh
   tag_tree:
