@@ -1,7 +1,7 @@
 on: push
 name: 'Tag and Publish to Production'
 jobs:
-  build:
+  build_tree:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
