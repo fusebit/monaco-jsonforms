@@ -1,19 +1,20 @@
-import React, { useRef, useState } from "react";
-import Editor from "@monaco-editor/react";
-import styled from "styled-components";
+import React, { useRef, useState } from 'react';
+import Editor from '@monaco-editor/react';
+import { Typography } from '@material-ui/core';
+import styled from 'styled-components';
 
 const Wrapper = styled.div<{ isExpandable: boolean }>`
-  margin-bottom: ${(props) => (props.isExpandable ? "24px" : 0)};
+  margin-bottom: ${(props) => (props.isExpandable ? '24px' : 0)};
 `;
 
 const StyledEditor = styled(Editor)<{ isExpandable: boolean }>`
   background-color: white;
   box-shadow: 0px 20px 48px rgba(52, 72, 123, 0.1);
   border-radius: 8px;
-  padding: ${(props) => !props.isExpandable && "4px 0"};
+  padding: ${(props) => !props.isExpandable && '4px 0'};
 
   .monaco-editor {
-    padding: ${(props) => props.isExpandable && "4px 0"};
+    padding: ${(props) => props.isExpandable && '4px 0'};
     .scroll-decoration {
       box-shadow: none;
     }
@@ -35,7 +36,7 @@ const StyledEditor = styled(Editor)<{ isExpandable: boolean }>`
   }
 `;
 
-const StyledLabel = styled.div`
+const StyledLabel = styled(Typography)`
   font-size: 12px;
   line-height: 16px;
   font-weight: 400;
@@ -48,19 +49,13 @@ interface Props {
   onChange: (val: string) => void;
   label?: string;
   isExpandable?: boolean;
-  language?: "javascript" | "json" | "yaml" | string;
+  language?: 'javascript' | 'json' | 'yaml' | string;
 }
 
 const LINE_HEIGHT = 20;
 const DEFAULT_EDITOR_HEIGHT = 290;
 
-const MonacoEditor = ({
-  value,
-  onChange,
-  label,
-  isExpandable,
-  language,
-}: Props) => {
+const MonacoEditor = ({ value, onChange, label, isExpandable, language }: Props) => {
   const editorRef = useRef<any>(null);
   const [editorHeight, setEditorHeight] = useState(DEFAULT_EDITOR_HEIGHT);
 
@@ -79,16 +74,16 @@ const MonacoEditor = ({
           },
           scrollBeyondLastLine: false,
           scrollbar: {
-            vertical: isExpandable ? "hidden" : "auto",
+            vertical: isExpandable ? 'hidden' : 'auto',
           },
           tabSize: 2,
         }}
-        language={language || "javascript"}
+        language={language || 'javascript'}
         theme="fusebit"
         value={value}
         onMount={handleOnMount}
         onChange={(val) => {
-          onChange(val || "");
+          onChange(val || '');
 
           if (!isExpandable) {
             return;
