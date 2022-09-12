@@ -17,7 +17,8 @@ jobs:
     needs: build_tree
     steps:
       - uses: actions/checkout@v2
-      - uses: ./scripts/tag.sh
+      - name: Tag
+        run: ./scripts/tag.sh
   publish_tree:
     runs-on: ubuntu-latest
     name: Publish
