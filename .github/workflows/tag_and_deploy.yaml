@@ -1,4 +1,7 @@
-on: push
+on:
+  push: 
+    branches:
+    - main
 name: 'Tag and Publish to Production'
 jobs:
   build_tree:
