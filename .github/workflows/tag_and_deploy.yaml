@@ -36,6 +36,7 @@ jobs:
         run: |
           HOMEDIR=${HOMEDIR:=~}
           echo //registry.npmjs.org/:_authToken=${SECRET_NPM_TOKEN} > ${HOMEDIR}/.npmrc
+          npm whoami
           npm publish
 
         env:
