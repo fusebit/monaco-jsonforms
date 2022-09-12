@@ -34,8 +34,9 @@ jobs:
         run: ./scripts/build.sh
       - name: Publish
         run: |
-          echo //registry.npmjs.org/:_authToken=${SECRET_NPM_TOKEN} > ~/.npmrc
-          npm whoami
-          npm publish --access public
+          HOMEDIR=${HOMEDIR:=~}
+          echo //registry.npmjs.org/:_authToken=${SECRET_NPM_TOKEN} > ${HOMEDIR}/.npmrc
+          npm publish
+
         env:
           SECRET_NPM_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
